@@ -1,4 +1,4 @@
-module github.com/stv0g/fritzbox-rfc2136
+module github.com/stv0g/fritz-dns
 
 go 1.19
 
