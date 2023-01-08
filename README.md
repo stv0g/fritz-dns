@@ -1,14 +1,30 @@
 # Fritz-DNS
 
-Fritz-DNS...
+In my home network, I am using an AVM FRITZ!Box Cable 6690. It handles DHCP, DNS, Wifi and [recently also interfaces my home network via WireGuard to my servers](https://en.avm.de/news/the-latest-news-from-fritz/2022/wireguard-vpn-has-never-been-so-easy/).
 
+Just like the venerable [Dnsmasq](https://thekelleys.org.uk/dnsmasq/doc.html) AVM’s FRITZ!OS uses hostnames learned from its DHCP leases and makes them resolvable via its internal DNS server.
+
+Unfortunately, this feature in FRITZ!OS has some limitations:
+
+- The name of the DNS Zone is hard coded to fritz.box and can not be adjusted. Hence, the resolvable names have the following schema: myhostname.fritz.box
+- The internal DNS server only supports recursive DNS looks. It does not act as an authoritative DNS server. Hence the local zone can not be delegated.
+- AXFR zone transfers are not supported.
+
+My solution to these shortcomings is _Fritz-DNS_ which:
+
+- is a small tool written in the Go programming language.
 - is a small authoritative DNS server which serves A/AAAA resource records for local hosts connected to an AVM Fritz Box home WiFi router.
-- is written in Go.
 - can be used in a hidden master configuration as it supports AXFR zone transfers.
-- uses the custom extension (`X_AVM-DE_GetHostListPath`) of the TR-064 Hosts SOAP-API [as documented here](https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/hostsSCPD.pdf) to retrieve a list of local hosts.
-- supports the generation of AAAA (IPv6) resource records based on the hosts MAC addresses using 64-Bit Extended Unique Identifier (EUI-64) and a configured unique local address (ULA) prefix.
-- does not yet support PTR resource records (to be implemented...)
-- is licensed under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0)
+- uses the custom extension (X_AVM-DE_GetHostListPath) of the TR-064 Hosts SOAP-API as documented here to retrieve a list of local hosts.
+- supports the generation of AAAA (IPv6) resource records based on the hosts MAC addresses using 64-Bit Extended Unique Identifier (EUI-64) - and a configured unique local address (ULA) prefix.
+- does not yet support PTR resource records (to be implemented…)
+- is licensed under the Apache 2.0 license
+
+You can find Fritz-DNS at GitHub: https://github.com/stv0g/fritz-dns
+
+Here is a small figure illustrating the interaction of Fritz-DNS with the Fritz!Box and other DNS servers / clients:
+
+![](docs/fritz-dns.svg)
 
 ## CLI Usage
 
@@ -61,3 +77,8 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+## References
+
+- [My Blog post about Fritz-DNS](https://noteblok.net/2023/01/08/fritz-dns-an-authoritative-dns-server-for-avm-fritzbox-routers/)
+- [AVM's TR-064 Support - Hosts](https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/hostsSCPD.pdf)
