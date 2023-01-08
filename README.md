@@ -2,7 +2,7 @@
 
 Fritz-DNS...
 
-- is a small authorative DNS server which serves A/AAAA resource records for local hosts connected to an AVM Fritz Box home WiFi router.
+- is a small authoritative DNS server which serves A/AAAA resource records for local hosts connected to an AVM Fritz Box home WiFi router.
 - is written in Go.
 - can be used in a hidden master configuration as it supports AXFR zone transfers.
 - uses the custom extension (`X_AVM-DE_GetHostListPath`) of the TR-064 Hosts SOAP-API [as documented here](https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/hostsSCPD.pdf) to retrieve a list of local hosts.
