@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2023 Steffen Vogel <post@steffenvogel.de>
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Fritz-DNS
 
 In my home network, I am using an AVM FRITZ!Box Cable 6690. It handles DHCP, DNS, Wifi and [recently also interfaces my home network via WireGuard to my servers](https://en.avm.de/news/the-latest-news-from-fritz/2022/wireguard-vpn-has-never-been-so-easy/).
