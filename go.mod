@@ -7,7 +7,7 @@ go 1.19
 
 require (
 	github.com/mdlayher/netx v0.0.0-20230430222610-7e21880baee8
-	github.com/miekg/dns v1.1.54
+	github.com/miekg/dns v1.1.55
 	github.com/philippfranke/go-fritzbox v0.0.0-20150306111818-ef55d262b15a
 )
 
