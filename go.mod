@@ -5,7 +5,7 @@ module github.com/stv0g/fritz-dns
 
 go 1.23.0
 
-toolchain go1.24.3
+toolchain go1.24.4
 
 require (
 	github.com/mdlayher/netx v0.0.0-20230430222610-7e21880baee8
