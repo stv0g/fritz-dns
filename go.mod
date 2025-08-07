@@ -9,7 +9,7 @@ toolchain go1.25.0
 
 require (
 	github.com/mdlayher/netx v0.0.0-20230430222610-7e21880baee8
-	github.com/miekg/dns v1.1.67
+	github.com/miekg/dns v1.1.68
 	github.com/philippfranke/go-fritzbox v0.0.0-20150306111818-ef55d262b15a
 )
 
